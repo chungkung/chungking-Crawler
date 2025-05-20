@@ -1,0 +1,18 @@
+# Python 忽略项
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 项目特定忽略项
+crawl_data.db
+crawler.log
+*.log
+
+# 虚拟环境
+venv/
+env/
+
+# IDE 配置
+.idea/
+.vscode/
