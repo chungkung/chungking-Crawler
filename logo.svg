@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="webGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A90E2"/>
+      <stop offset="100%" stop-color="#2B6CD4"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#webGrad)" d="M64 0L80 32H48L64 0ZM48 96H80L64 128L48 96ZM32 64L0 80V48L32 64ZM96 64L128 80V48L96 64ZM40 40L56 56H40V40ZM72 56H88L72 40V56ZM56 72V88L40 72H56ZM72 88V72H88L72 88ZM64 32L72 40H56L64 32ZM64 96L56 88H72L64 96ZM32 56L40 64H24L32 56ZM96 56L104 64H88L96 56ZM40 88L56 72V88H40ZM72 40V56L88 40H72ZM64 64M56 64H72V72H56V64Z"/>
+  <circle cx="64" cy="64" r="8" fill="#FFFFFF"/>
+</svg>

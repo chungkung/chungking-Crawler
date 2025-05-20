@@ -1,5 +1,11 @@
 # FireCrawl 爬虫应用开发指南
 
+[切换语言 / Switch Language]
+- [中文 / Chinese](#chinese-version)
+- [英文 / English](#english-version)
+
+## 中文版本 / Chinese Version {#chinese-version}
+
 ## 项目概述
 基于Python的通用网页爬虫工具，支持URL爬取、内容提取及简单数据存储，适用于小型网站数据采集场景。
 
@@ -74,6 +80,29 @@ uvicorn chungking.api:app --host 0.0.0.0 --port 8000
 集成Celery实现多节点协同爬取，配置参数：`CELERY_BROKER_URL`（消息队列地址），`CELERY_RESULT_BACKEND`（结果存储地址）。支持任务分发与结果汇总。
 
 ## 部署建议
+
+## 开源协议 / Open Source License
+本项目采用 [MIT 许可证](https://opensource.org/licenses/MIT)。使用本项目时需遵守以下条款：
+- 保留原项目的版权声明（包括本许可证和版权信息）。
+- 不得将本项目用于非法或侵犯他人权益的用途。
+- 本项目不提供任何形式的担保，作者对使用本项目导致的任何直接或间接损失不承担责任。
+
+## 英文版本 / English Version {#english-version}
+
+### Project Overview
+A Python-based general-purpose web crawler tool that supports URL fetching, content extraction, and simple data storage, suitable for small website data collection scenarios.
+
+### Tech Stack
+- Network Requests: requests (HTTP client)
+- Content Parsing: beautifulsoup4 + lxml (HTML/XML parsing)
+- Dependency Management: pip (managed via requirements.txt)
+
+### Architecture Modules
+1. **Network Request Module** (`main.py`): Wraps HTTP request logic with timeout control (`REQUEST_TIMEOUT`), random User-Agent (`USER_AGENTS`), and concurrent crawling (`ThreadPoolExecutor`). Handles network exceptions and returns structured results.
+2. **Link Extraction Module** (`main.py`): Uses BeautifulSoup to parse HTML, extracts all hyperlinks and converts them to absolute paths. Integrates URL deduplication mechanism (`visited_urls` set) to avoid repeated crawling.
+3. **Configuration Module** (`config.py`): Centralizes management of base URL, User-Agent list, concurrent threads (`MAX_WORKERS`), crawl delay (`CRAWL_DELAY`), etc. Supports quick adjustment of anti-crawling strategies.
+4. **Data Extraction Module** (`main.py`): Extracts core content like page titles and body based on configured selectors (`CONTENT_SELECTORS`), returns structured data (dictionary format).
+5. **Data Storage Module** (`storage.py`): Provides CSV and JSON storage methods, auto-generates filenames with timestamps, supports persisting crawl results to local files.
 - 本地测试：通过`python main.py`直接运行，观察控制台输出和生成的CSV/JSON文件
 - 服务器部署：
    - 使用Docker打包（创建`Dockerfile`，基于Python镜像安装依赖）
